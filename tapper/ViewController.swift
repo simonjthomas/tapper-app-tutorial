@@ -33,8 +33,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         updateTapsLbl()
         
         if isGameOver() {
+            // Show alert
+            var endAlert = UIAlertController(title: "Game Over", message: "\(maxTaps) Presses Complete in X Seconds! Well done!", preferredStyle: UIAlertControllerStyle.Alert)
             
-            restartGame()
+            endAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.restartGame()
+            }))
+            
+            presentViewController(endAlert, animated: true, completion: nil)
+            
+            // Restart Game
+            //restartGame()
         }
         
     }
