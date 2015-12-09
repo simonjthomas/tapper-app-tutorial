@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     // Variables
     var maxTaps: Int = 0
     var currentTaps: Int = 0
@@ -20,6 +20,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tapBtn: UIButton!
     @IBOutlet weak var tapsLbl: UILabel!
+    
+    // For dismissing keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func onCoinTapped(sender: UIButton!) {
         currentTaps++
