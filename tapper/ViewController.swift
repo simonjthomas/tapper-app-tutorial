@@ -12,6 +12,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Variables
     var maxTaps: Int = 0
     var currentTaps: Int = 0
+    var timer = NSTimer()
+    var elapsedTime = 0
+    var timerRunning = false
     
     // Outlets
     @IBOutlet weak var logoImg: UIImageView!
@@ -32,11 +35,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         currentTaps++       // Increment number of taps
         updateTapsLbl()
         
+        // Start Timer
+        if timerRunning == false {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+            timerRunning = true
+        }
+
+        
+        
         if isGameOver() {
+            // Stop timer
+            timer.invalidate()
+            
             // Show alert
-            var endAlert = UIAlertController(title: "Game Over", message: "\(maxTaps) Presses Complete in X Seconds! Well done!", preferredStyle: UIAlertControllerStyle.Alert)
+            var endAlert = UIAlertController(title: "Game Over", message: "\(maxTaps) Presses Complete in \(elapsedTime) Seconds! Well done!", preferredStyle: UIAlertControllerStyle.Alert)
             
             endAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.timerRunning = false
                 self.restartGame()
             }))
             
@@ -67,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             maxTaps = Int(howManyTapsTxt.text!)!
             currentTaps = 0
             
+            
             updateTapsLbl()
         }
     }
@@ -81,6 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func restartGame() {
         maxTaps = 0
+        elapsedTime = 0
         howManyTapsTxt.text = ""
         
         logoImg.hidden = false
@@ -96,5 +113,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapsLbl.text = "\(currentTaps) Taps"
     }
     
+    func updateCounter() {
+        elapsedTime++
+    }
 }
 
