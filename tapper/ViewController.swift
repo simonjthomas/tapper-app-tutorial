@@ -28,10 +28,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onCoinTapped(sender: UIButton!) {
-        currentTaps++
+        currentTaps++       // Increment number of taps
         updateTapsLbl()
         
         if isGameOver() {
+            
             restartGame()
         }
         
