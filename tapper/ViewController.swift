@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var howManyTapsTxt: UITextField!
     @IBOutlet weak var playBtn: UIButton!
+    @IBOutlet weak var quitBtn: UIButton!
     
     @IBOutlet weak var tapBtn: UIButton!
     @IBOutlet weak var tapsLbl: UILabel!
@@ -38,6 +39,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func onQuit(sender: UIButton!) {
+        restartGame()
+    }
+    
     @IBAction func onPlayBtnPressed(sender: UIButton!) {
         
         if howManyTapsTxt.text != nil && howManyTapsTxt.text != "" {
@@ -48,6 +53,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             tapBtn.hidden = false
             tapsLbl.hidden = false
+            quitBtn.hidden = false
             
             maxTaps = Int(howManyTapsTxt.text!)!
             currentTaps = 0
@@ -74,6 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         tapBtn.hidden = true
         tapsLbl.hidden = true
+        quitBtn.hidden = true
     }
     
     func updateTapsLbl() {

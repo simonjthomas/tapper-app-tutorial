@@ -71,12 +71,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFt-4X-5Ne">
+                                <rect key="frame" x="227" y="391" width="157" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onQuit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICl-FV-Ih9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GtX-NL-XZL" secondAttribute="bottom" constant="58" id="0lq-Zx-TKG"/>
                             <constraint firstItem="0Ka-Nb-kMo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="32W-tw-zCp"/>
                             <constraint firstItem="OJR-gC-erv" firstAttribute="top" secondItem="PqS-Ac-6Dr" secondAttribute="bottom" constant="54" id="3ss-wj-dY3"/>
+                            <constraint firstItem="GtX-NL-XZL" firstAttribute="top" secondItem="YFt-4X-5Ne" secondAttribute="bottom" constant="8" id="B64-xK-cIf"/>
                             <constraint firstAttribute="trailing" secondItem="ejH-22-77I" secondAttribute="trailing" id="Eol-JP-JEh"/>
                             <constraint firstItem="PqS-Ac-6Dr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Nhb-9D-dfW"/>
                             <constraint firstItem="ejH-22-77I" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RCD-nT-E9P"/>
@@ -88,12 +99,14 @@
                             <constraint firstItem="OJR-gC-erv" firstAttribute="centerX" secondItem="PqS-Ac-6Dr" secondAttribute="centerX" id="hFX-lX-ixm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ejH-22-77I" secondAttribute="bottom" id="jSh-bm-VVu"/>
                             <constraint firstItem="ejH-22-77I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n6L-bj-pKZ"/>
+                            <constraint firstItem="YFt-4X-5Ne" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tWx-IY-Dow"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="howManyTapsTxt" destination="bPf-XZ-m5Z" id="1r1-ds-uwC"/>
                         <outlet property="logoImg" destination="0Ka-Nb-kMo" id="air-X4-koJ"/>
                         <outlet property="playBtn" destination="GtX-NL-XZL" id="lmc-Ap-oHq"/>
+                        <outlet property="quitBtn" destination="YFt-4X-5Ne" id="10H-MJ-zwU"/>
                         <outlet property="tapBtn" destination="PqS-Ac-6Dr" id="63y-7P-01N"/>
                         <outlet property="tapsLbl" destination="OJR-gC-erv" id="vR3-Z3-iXO"/>
                     </connections>
