@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             timer.invalidate()
             
             // Show alert
-            var endAlert = UIAlertController(title: "Game Over", message: "\(maxTaps) Presses Complete in \(elapsedTime) Seconds! Well done!", preferredStyle: UIAlertControllerStyle.Alert)
+            let endAlert = UIAlertController(title: "Game Over", message: "\(maxTaps) Presses Complete in \(elapsedTime) Seconds! Well done!", preferredStyle: UIAlertControllerStyle.Alert)
             
             endAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                 self.timerRunning = false
